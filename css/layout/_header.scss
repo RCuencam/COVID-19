@@ -1,0 +1,17 @@
+body
+{
+    font-family:$font;
+}
+
+.header
+{
+    background: $dark;
+    .page-title
+    {
+        color: white;
+        text-align: center;
+        letter-spacing: 4pt;
+        font-size: $font-title;
+        font-weight: bold;
+    }
+}

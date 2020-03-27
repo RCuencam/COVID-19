@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>COVID_19</title>
+  </head>
+  <body>
+      <div class="container-fluid header">
+          <div class="row">
+              <div class="col py-3">
+                    <h1 class="page-title">COVID-19</h1>
+                    <nav class="navbar navbar justify-content-center">
+                        <form class="form-inline">
+                        <input class="form-control mr-2 col-sm-12 col-md-12 col-lg-8" type="search" placeholder="Lima,Perú" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 offset-4 offset-lg-0" type="submit">Search</button>
+                        </form>
+                    </nav>
+              </div>
+          </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col px-0">
+                <div id="map"></div>
+            </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col">
+                  <div class="stats">
+                      <div class="cases">
+                          <h1>Casos</h1>
+                      </div>
+                      <div class="recovered">
+                          <h1>Recuperados</h1>
+                      </div>
+                      <div class="deaths">
+                          <h1>Muertes</h1>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="script.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnS8RteuVUZyX44PUXMXBvRsRbs9gfNdE&callback=initMap">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
