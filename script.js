@@ -196,3 +196,32 @@ function initMap()
     map.mapTypes.set('styled_map', styledMapType);
     map.setMapTypeId('styled_map');
 }
+
+// Cases, Recovered and Deaths
+
+const $casesContainer=document.querySelector(".cases")
+const $recoveredContainer=document.querySelector(".recovered")
+const $deathsContainer=document.querySelector(".deaths")
+
+async function getData()
+{
+  const URL="https://corona.lmao.ninja/all"
+  const response=await fetch(URL)
+  const data=response.json()
+  return data
+}
+async function getStats()
+{
+  const data=await getData()
+  $casesContainer.textContent=data.cases
+  
+  $recoveredContainer.textContent=data.recovered
+
+  $deathsContainer.textContent=data.deaths
+}
+async function load()
+{
+  getStats()
+}
+
+load()

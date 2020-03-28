@@ -8,10 +8,11 @@ body
     background: $dark;
     .page-title
     {
-        color: white;
+        color: $green;
         text-align: center;
         letter-spacing: 4pt;
-        font-size: $font-title;
+        font-size: $font-title*1.2;
         font-weight: bold;
+        text-transform: uppercase;
     }
 }

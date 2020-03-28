@@ -1,0 +1,41 @@
+.stats-container
+{
+    background: $dark;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+
+    .stats
+    {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        &-item
+        {
+            margin: 0 3em;
+
+            & h1
+            {
+                font-size:$font-title;
+                color:$green;
+            }
+            & p
+            {
+                font-size:$font-title;
+                font-weight: 700;
+                text-align: center;
+                color: $white;
+                margin-bottom: 0;;
+            }
+        }
+        @include responsive(768px)
+        {
+            flex-direction: column;
+
+            &-item
+            {
+                margin:1em 3em;
+            }
+        }
+    }
+}
