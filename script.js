@@ -1,3 +1,4 @@
+
 function initMap()
 {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -205,21 +206,43 @@ const $deathsContainer=document.querySelector(".deaths")
 
 const $form=document.querySelector(".form")
 const $button=document.querySelector(".button")
+const $country=document.querySelector(".country")
 
 async function getData(URL)
 {
-  const response=await fetch(URL)
-  const data=response.json()
-  return data
+  try {
+    const response=await fetch(URL)
+    const data=response.json()
+    return data
+  } catch(error){
+    console.log("asdasd")
+  }
+}
+function modalError()
+{
+  Swal.fire(
+    'Error!',
+    'Nombre no existente!',
+    'error'
+  )
 }
 async function getStats(URL)
 {
   const data=await getData(URL)
-  $casesContainer.textContent=data.cases
-  
-  $recoveredContainer.textContent=data.recovered
+  if(data.message)
+  {
+    modalError()
+  }
+  else
+  {
+    $casesContainer.textContent=data.cases
+      
+    $recoveredContainer.textContent=data.recovered
+    
+    $deathsContainer.textContent=data.deaths
 
-  $deathsContainer.textContent=data.deaths
+    $country.textContent=data.country
+  }
 }
 
 function getForm()
