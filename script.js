@@ -203,25 +203,46 @@ const $casesContainer=document.querySelector(".cases")
 const $recoveredContainer=document.querySelector(".recovered")
 const $deathsContainer=document.querySelector(".deaths")
 
-async function getData()
+const $form=document.querySelector(".form")
+const $button=document.querySelector(".button")
+
+async function getData(URL)
 {
-  const URL="https://corona.lmao.ninja/all"
   const response=await fetch(URL)
   const data=response.json()
   return data
 }
-async function getStats()
+async function getStats(URL)
 {
-  const data=await getData()
+  const data=await getData(URL)
   $casesContainer.textContent=data.cases
   
   $recoveredContainer.textContent=data.recovered
 
   $deathsContainer.textContent=data.deaths
 }
+
+function getForm()
+{
+  $button.addEventListener("click",(e)=>
+  {
+    e.preventDefault()
+    const data=new FormData($form)
+    const URLCountry=`https://corona.lmao.ninja/countries/${data.get("text")}`
+    getStats(URLCountry)
+    window.scroll({
+      top: 10000,
+      left: 0,
+      behavior: 'smooth'
+    });
+  })
+}
 async function load()
 {
-  getStats()
+  const URLAll="https://corona.lmao.ninja/all"
+  getStats(URLAll)
+  getForm()
+  //https://corona.lmao.ninja/countries/Peru
 }
 
 load()
