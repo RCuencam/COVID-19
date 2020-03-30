@@ -1,8 +1,8 @@
 
-function initMap()
+function initMap(lat,lng)
 {
     map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -9.1899672, lng: -75.015152},
+    center: {lat: lat, lng: lng},
     zoom: 5
     });
 
@@ -196,6 +196,15 @@ function initMap()
     )
     map.mapTypes.set('styled_map', styledMapType);
     map.setMapTypeId('styled_map');
+
+    setTimeout(()=>
+    {
+      var marker=new google.maps.Marker({
+        position:{lat: lat, lng: lng},
+        map:map,
+        icon:"src/image.png"
+      });
+    },500)
 }
 
 // Cases, Recovered and Deaths
@@ -236,25 +245,27 @@ async function getStats(URL)
   else
   {
     $casesContainer.textContent=data.cases
-      
+    
     $recoveredContainer.textContent=data.recovered
     
     $deathsContainer.textContent=data.deaths
-
+    
     $country.textContent=data.country
+    
+    initMap(data.countryInfo.lat,data.countryInfo.long)
   }
 }
 
 function getForm()
 {
-  $button.addEventListener("click",(e)=>
+  $button.addEventListener("click",async (e)=>
   {
     e.preventDefault()
     const data=new FormData($form)
     const URLCountry=`https://corona.lmao.ninja/countries/${data.get("text")}`
     getStats(URLCountry)
     window.scroll({
-      top: 10000,
+      top: 200,
       left: 0,
       behavior: 'smooth'
     });
@@ -262,10 +273,10 @@ function getForm()
 }
 async function load()
 {
+  initMap(-10,-76)
   const URLAll="https://corona.lmao.ninja/all"
   getStats(URLAll)
   getForm()
-  //https://corona.lmao.ninja/countries/Peru
 }
 
 load()
