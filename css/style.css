@@ -88,4 +88,11 @@ body {
     margin-left: 0;
   }
 }
+
+footer {
+  background-color: #252424;
+  color: #f0dada;
+  text-align: center;
+  padding-top: 4em;
+}
 /*# sourceMappingURL=style.css.map */

@@ -216,6 +216,7 @@ const $deathsContainer=document.querySelector(".deaths")
 const $form=document.querySelector(".form")
 const $button=document.querySelector(".button")
 const $country=document.querySelector(".country")
+const $update=document.querySelector(".update")
 
 async function getData(URL)
 {
@@ -238,6 +239,8 @@ function modalError()
 async function getStats(URL)
 {
   const data=await getData(URL)
+  const hora= new Date(data.updated)
+
   if(data.message)
   {
     modalError()
@@ -252,6 +255,7 @@ async function getStats(URL)
     
     $country.textContent=data.country
     
+    $update.textContent=`Última Actualización: ${hora.toLocaleDateString()} a las ${hora.toLocaleTimeString()}`
     initMap(data.countryInfo.lat,data.countryInfo.long)
   }
 }
