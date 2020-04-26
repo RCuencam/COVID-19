@@ -266,7 +266,7 @@ function getForm()
   {
     e.preventDefault()
     const data=new FormData($form)
-    const URLCountry=`https://corona.lmao.ninja/countries/${data.get("text")}`
+    const URLCountry=`https://corona.lmao.ninja/v2/countries/${data.get("text")}`
     getStats(URLCountry)
     window.scroll({
       top: 200,
@@ -278,7 +278,7 @@ function getForm()
 async function load()
 {
   initMap(-10,-76)
-  const URLAll="https://corona.lmao.ninja/all"
+  const URLAll="https://corona.lmao.ninja/v2/all"
   getStats(URLAll)
   getForm()
 }
